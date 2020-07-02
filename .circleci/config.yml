@@ -211,12 +211,12 @@ workflows:
   #     - large
   #     - xlarge
 
-  vm_jobs:
-    jobs:
-      - machine
-      - remote_docker
-      - docker_layer_caching
-      - machine_dlc
+  # vm_jobs:
+  #   jobs:
+  #     - machine
+  #     - remote_docker
+  #     - docker_layer_caching
+  #     - machine_dlc
 
   feature_jobs:
     jobs:
