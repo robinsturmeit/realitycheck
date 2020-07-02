@@ -45,8 +45,6 @@ jobs:
   small: # 1 vCPU, 2GB RAM
     <<: *resource_job_defaults
     resource_class: small
-    environment:
-      CIRCLE_HOSTNAME: fail!
 
   medium: # 2 vCPUs, 4GB RAM
     <<: *resource_job_defaults
@@ -208,14 +206,20 @@ workflows:
   resource_class_jobs:
     jobs:
       - small
-      - medium
+      - medium:
+          filters:
+            tags:
+              only: /^v.*/
   #     - medium+
   #     - large
   #     - xlarge
 
-  # vm_jobs:
-  #   jobs:
-  #     - machine
+  vm_jobs:
+    jobs:
+      - machine:
+          filters:
+            branches:
+              only: /^vm$/
   #     - remote_docker
   #     - docker_layer_caching
   #     - machine_dlc
