@@ -232,10 +232,12 @@ workflows:
       - artifacts_test_results
 
   deploy_job:
-    jobs:
-      - deploy:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
           filters:
-            tags:
-              only: /^v.*/
             branches:
-              ignore: /.*/
+              only:
+                - deploy
+    jobs:
+      - deploy
