@@ -65,7 +65,7 @@ jobs:
   deploy:
     machine: true
     steps:
-      - run: echo "Deploy job ran"
+      - run: echo "DEPLOYED!"
 
   # vm jobs
   machine:
