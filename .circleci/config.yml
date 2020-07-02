@@ -235,5 +235,5 @@ workflows:
     jobs:
       - deploy:
           filters:
-            branches:
-              only: "deploy"
+            tags:
+              only: /^v.*/
