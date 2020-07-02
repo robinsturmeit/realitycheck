@@ -65,7 +65,7 @@ jobs:
   deploy:
     machine: true
     steps:
-      - run: echo "Deploy job ran on deploy branch"
+      - run: echo "Deploy job ran on updated deploy branch"
 
   # vm jobs
   machine:
