@@ -57,14 +57,15 @@ jobs:
   large: # 4 vCPUs, 8GB RAM
     <<: *resource_job_defaults
     resource_class: large
-    environment:
-      CIRCLE_HOSTNAME: iwanttofail
 
   xlarge: # 8 vCPUs, 16GB RAM
     <<: *resource_job_defaults
     resource_class: xlarge
-    environment:
-      CIRCLE_HOSTNAME: iwanttofail
+
+  deploy:
+    machine: true
+    steps:
+      - run: echo "On deploy branch, deploy job ran"
 
   # vm jobs
   machine:
@@ -206,9 +207,9 @@ workflows:
     jobs:
       - small
       - medium
-      - medium+
-      - large
-      - xlarge
+#      - medium+
+#      - large
+#      - xlarge
 
   vm_jobs:
     jobs:
@@ -230,3 +231,9 @@ workflows:
             - write_workspace
       - artifacts_test_results
 
+  deploy_job:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: "deploy"
