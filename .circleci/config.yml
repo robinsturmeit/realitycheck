@@ -65,7 +65,7 @@ jobs:
   deploy:
     machine: true
     steps:
-      - run: echo "On deploy branch, deploy job ran"
+      - run: echo "Deploy job ran"
 
   # vm jobs
   machine:
@@ -237,3 +237,5 @@ workflows:
           filters:
             tags:
               only: /^v.*/
+            branches:
+              ignore: /.*/
