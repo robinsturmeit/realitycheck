@@ -240,10 +240,6 @@ workflows:
   deploy_job:
     triggers:
       - schedule:
-          cron: "0 10 * * *"
-          filters:
-            branches:
-              only:
-                - deploy
+          cron: "* * * * *"
     jobs:
       - deploy
