@@ -236,14 +236,3 @@ workflows:
           requires:
             - write_workspace
       - artifacts_test_results
-
-  deploy_job:
-    triggers:
-      - schedule:
-          cron: "* 0 * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - deploy
