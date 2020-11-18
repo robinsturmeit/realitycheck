@@ -216,13 +216,10 @@ workflows:
 
   vm_jobs:
     jobs:
-      - machine:
-          filters:
-            branches:
-              only: /^vm$/
-  #     - remote_docker
-  #     - docker_layer_caching
-  #     - machine_dlc
+      - machine
+      - remote_docker
+      - docker_layer_caching
+      - machine_dlc
 
   feature_jobs:
     jobs:
