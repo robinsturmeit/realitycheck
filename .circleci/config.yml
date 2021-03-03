@@ -61,6 +61,19 @@ jobs:
   xlarge: # 8 vCPUs, 16GB RAM
     <<: *resource_job_defaults
     resource_class: xlarge
+    
+  windows:
+    resource_class: windows_default
+    steps:
+      - run:            
+         command: $(echo hello | Out-Host; $?) -and $(echo world | Out-Host; $?)
+         shell: powershell.exe
+      - run:
+         command: echo hello && echo world
+         shell: bash.exe
+      - run:
+         command: echo hello & echo world
+         shell: cmd.exe
 
   deploy:
     machine: true
@@ -220,6 +233,7 @@ workflows:
       - remote_docker
       - docker_layer_caching
       - machine_dlc
+      - windows
 
   feature_jobs:
     jobs:
