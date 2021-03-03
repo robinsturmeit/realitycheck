@@ -63,7 +63,8 @@ jobs:
     resource_class: xlarge
     
   windows:
-    resource_class: windows_default
+    machine: 
+      resource_class: windows_medium
     steps:
       - run:            
          command: $(echo hello | Out-Host; $?) -and $(echo world | Out-Host; $?)
