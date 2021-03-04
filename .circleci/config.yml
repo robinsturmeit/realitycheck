@@ -64,7 +64,7 @@ jobs:
     
   windows:
     machine: 
-      resource_class: windows_medium
+      resource_class: windows.medium
     steps:
       - run:            
          command: $(echo hello | Out-Host; $?) -and $(echo world | Out-Host; $?)
