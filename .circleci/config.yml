@@ -65,6 +65,7 @@ jobs:
   windows:
     machine: 
       resource_class: windows.medium
+      image: windows-default
     steps:
       - run:            
          command: $(echo hello | Out-Host; $?) -and $(echo world | Out-Host; $?)
